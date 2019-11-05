@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.RecursiveTask;
 
+/**
+ * 异步计算list中的整数之和
+ */
 public class MyTask extends RecursiveTask<Integer> {
+    //一个task最多计算的数字限度
     private int limit;
     private List<Integer> numubers;
 
@@ -17,10 +21,12 @@ public class MyTask extends RecursiveTask<Integer> {
         boolean canCompute = numubers.size() <= limit;
         int result;
 
+        //小于限度则计算
         if (canCompute) {
             result = add(numubers);
         } else {
             int middle = numubers.size() / 2;
+            //否则，则继续拆分任务
             MyTask task1 = new MyTask(limit, numubers.subList(0, middle));
             MyTask task2 = new MyTask(limit, numubers.subList(middle, numubers.size()));
 

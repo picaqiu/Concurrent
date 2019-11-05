@@ -5,7 +5,7 @@ import java.util.concurrent.Semaphore;
 
 /**
  * use the semaphore
- * to make the two threads
+ * to make the three threads
  * print the first, second, third alternately.
  */
 public class SemaphoreExample2 {
@@ -22,7 +22,7 @@ public class SemaphoreExample2 {
 
         Thread secondThread = new Thread(() -> {
             try {
-                //if the semaphore1's permit is not one,the thread will be put into a blocked queue
+                //if the semaphore1's permit is not one,current thread will be put blocked
                 semaphore1.acquire(1);
                 //second thread print Second
                 System.out.println("Second");
