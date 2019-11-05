@@ -36,6 +36,7 @@ public class CyclicBarrierExample {
 
         thread1.start();
         thread2.start();
+
         System.out.println("main thread finish");
     }
 }

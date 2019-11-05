@@ -3,7 +3,7 @@ package ConcurrentUtilsExample;
 import java.util.concurrent.Semaphore;
 
 /**
- * print the foo bar alternately many times according to your input
+ * print the 'foo' 'bar' alternately
  */
 public class SemaphoreExample3 {
     private static int times;
@@ -23,6 +23,7 @@ public class SemaphoreExample3 {
         setTimes(10);
         // init the semaphore 1
         init();
+
         Thread thread1 = new Thread(() -> {
             for (int i = 0; i < times; i++) {
                 try {
