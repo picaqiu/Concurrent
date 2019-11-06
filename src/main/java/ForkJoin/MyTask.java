@@ -1,4 +1,4 @@
-package ForkJoinExample;
+package ForkJoin;
 
 import java.util.ArrayList;
 import java.util.List;
