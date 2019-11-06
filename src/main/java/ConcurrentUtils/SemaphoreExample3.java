@@ -1,4 +1,4 @@
-package ConcurrentUtilsExample;
+package ConcurrentUtils;
 
 import java.util.concurrent.Semaphore;
 
