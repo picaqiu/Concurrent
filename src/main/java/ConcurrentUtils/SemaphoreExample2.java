@@ -4,9 +4,9 @@ package ConcurrentUtils;
 import java.util.concurrent.Semaphore;
 
 /**
- * use the semaphore
- * to make the three threads
- * print the first, second, third alternately.
+ * 使用信号量
+ * 使得三个线程每次都按顺序打印出
+ * First、Second、Third
  */
 public class SemaphoreExample2 {
     private static Semaphore semaphore1 = new Semaphore(0);

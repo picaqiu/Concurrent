@@ -3,7 +3,7 @@ package ConcurrentUtils;
 import java.util.concurrent.Semaphore;
 
 /**
- * print the 'foo' 'bar' alternately
+ * 两个线程依次打印出foo,bar并重复输入的次数n次
  */
 public class SemaphoreExample3 {
     private static int times;
