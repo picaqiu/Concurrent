@@ -3,6 +3,7 @@ package Atomic;
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.IntUnaryOperator;
 
 import static UnsafeUtil.UnsafeHelper.unsafe;
 
@@ -81,6 +82,14 @@ public class MyAtomicInteger extends Number implements Serializable {
     }
 
     public static void main(String[] args) {
+        AtomicInteger atomicInteger = new AtomicInteger(1);
+
+        IntUnaryOperator intUnaryOperator = IntUnaryOperator.identity();
+        intUnaryOperator.compose(intUnaryOperator);
+        System.out.println(intUnaryOperator.applyAsInt(12));
+        System.out.println( atomicInteger.getAndUpdate(intUnaryOperator));
+        System.out.println(atomicInteger.get());
+
         MyAtomicInteger integer = new MyAtomicInteger(0);
 
         System.out.println("initial integer is : " + integer.get());
