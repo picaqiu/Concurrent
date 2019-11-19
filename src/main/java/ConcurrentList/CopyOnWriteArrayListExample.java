@@ -1,6 +1,5 @@
 package ConcurrentList;
 
-import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
