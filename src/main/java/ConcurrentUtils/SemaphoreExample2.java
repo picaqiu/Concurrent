@@ -10,7 +10,7 @@ import java.util.concurrent.Semaphore;
  */
 public class SemaphoreExample2 {
     private static Semaphore semaphore1 = new Semaphore(0);
-    private static Semaphore semaphore2 = new Semaphore(0);
+     private static Semaphore semaphore2 = new Semaphore(0);
 
     public static void main(String[] args) {
         Thread firstThread = new Thread(() -> {

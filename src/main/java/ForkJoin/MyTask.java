@@ -17,6 +17,26 @@ public class MyTask extends RecursiveTask<Integer> {
         this.numubers = numubers;
     }
 
+    public static void main(String[] args) {
+        List<Integer> nunmbers = new ArrayList<>();
+        nunmbers.add(1);
+        nunmbers.add(2);
+        nunmbers.add(3);
+        nunmbers.add(4);
+        nunmbers.add(5);
+        nunmbers.add(6);
+        nunmbers.add(7);
+        nunmbers.add(8);
+        nunmbers.add(9);
+        nunmbers.add(10);
+
+        MyTask task = new MyTask(6, nunmbers);
+        long time1 = System.currentTimeMillis();
+        System.out.println(task.compute());
+        long time2 = System.currentTimeMillis();
+        System.out.println("cost: " + (time2 - time1));
+    }
+
     protected Integer compute() {
         boolean canCompute = numubers.size() <= limit;
         int result;
@@ -49,22 +69,5 @@ public class MyTask extends RecursiveTask<Integer> {
             sum += numuber;
         }
         return sum;
-    }
-
-    public static void main(String[] args) {
-        List<Integer> nunmbers = new ArrayList<>();
-        nunmbers.add(1);
-        nunmbers.add(2);
-        nunmbers.add(3);
-        nunmbers.add(4);
-        nunmbers.add(5);
-        nunmbers.add(6);
-        nunmbers.add(7);
-        nunmbers.add(8);
-        nunmbers.add(9);
-        nunmbers.add(10);
-
-        MyTask task = new MyTask(6, nunmbers);
-        System.out.println(task.compute());
     }
 }

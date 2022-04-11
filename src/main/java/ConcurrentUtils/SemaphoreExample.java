@@ -10,12 +10,12 @@ public class SemaphoreExample {
 
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 
-        executorService.submit(()->{
+        executorService.submit(() -> {
             System.out.println(Thread.currentThread().getName() + " over");
             semaphore.release();
         });
 
-        executorService.submit(()->{
+        executorService.submit(() -> {
             System.out.println(Thread.currentThread().getName() + " over");
             semaphore.release();
         });
