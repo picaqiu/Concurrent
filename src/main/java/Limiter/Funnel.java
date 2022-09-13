@@ -29,5 +29,6 @@ public class Funnel {
         this.leftSpace += space;
         this.leakTime = now;
         this.leftSpace = this.leftSpace > capacity ? capacity : this.leftSpace;
+        
     }
 }
