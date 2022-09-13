@@ -1,16 +1,16 @@
-package ConcurrentUtilsExample;
+package ConcurrentUtils;
 
 
 import java.util.concurrent.Semaphore;
 
 /**
- * use the semaphore
- * to make the two threads
- * print the first, second, third alternately.
+ * 使用信号量
+ * 使得三个线程每次都按顺序打印出
+ * First、Second、Third
  */
 public class SemaphoreExample2 {
     private static Semaphore semaphore1 = new Semaphore(0);
-    private static Semaphore semaphore2 = new Semaphore(0);
+     private static Semaphore semaphore2 = new Semaphore(0);
 
     public static void main(String[] args) {
         Thread firstThread = new Thread(() -> {
@@ -22,7 +22,7 @@ public class SemaphoreExample2 {
 
         Thread secondThread = new Thread(() -> {
             try {
-                //if the semaphore1's permit is not one,the thread will be put into a blocked queue
+                //if the semaphore1's permit is not one,current thread will be put blocked
                 semaphore1.acquire(1);
                 //second thread print Second
                 System.out.println("Second");

@@ -1,4 +1,4 @@
-package ConcurrentUtilsExample;
+package ConcurrentUtils;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
@@ -36,6 +36,7 @@ public class CyclicBarrierExample {
 
         thread1.start();
         thread2.start();
+
         System.out.println("main thread finish");
     }
 }
