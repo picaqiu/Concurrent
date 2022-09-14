@@ -1,4 +1,4 @@
-package Netty.message;
+package Netty.messages;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

@@ -1,4 +1,4 @@
-package Netty.message;
+package Netty.messages;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
