@@ -13,6 +13,8 @@ import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import lombok.extern.slf4j.Slf4j;
 
+import static Constant.ConfigConstants.SOCKET_SERVER_PORT;
+
 @Slf4j
 public class ProtobufServer {
     private final int port;
@@ -58,5 +60,9 @@ public class ProtobufServer {
             workers.shutdownGracefully();
             boss.shutdownGracefully();
         }
+    }
+
+    public static void main(String[] args) {
+        new ProtobufServer(SOCKET_SERVER_PORT).runServer();
     }
 }

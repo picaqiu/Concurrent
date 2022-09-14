@@ -10,6 +10,9 @@ import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import lombok.extern.slf4j.Slf4j;
 
+import static Constant.ConfigConstants.SOCKET_SERVER_IP;
+import static Constant.ConfigConstants.SOCKET_SERVER_PORT;
+
 @Slf4j
 public class ProtobufClient {
     private final String host;
@@ -60,5 +63,9 @@ public class ProtobufClient {
         } finally {
             workers.shutdownGracefully();
         }
+    }
+
+    public static void main(String[] args) {
+        new ProtobufClient(SOCKET_SERVER_IP, SOCKET_SERVER_PORT).sendMessage();
     }
 }
