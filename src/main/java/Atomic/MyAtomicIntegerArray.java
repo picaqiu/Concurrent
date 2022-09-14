@@ -6,13 +6,22 @@ import sun.misc.Unsafe;
 import java.io.Serializable;
 
 public class MyAtomicIntegerArray implements Serializable {
+    private static final int scale;//表示数组中一个元素所占的空间
     private static Unsafe unsafe = UnsafeHelper.unsafe;
     private static final int base = unsafe.arrayBaseOffset(int[].class);//数组第一个元素在内存中的偏移量
-    private static final int scale;//表示数组中一个元素所占的空间
-    private final int[] array;
 
     static {
         scale = unsafe.arrayIndexScale(int[].class);
+    }
+
+    private final int[] array;
+
+    public MyAtomicIntegerArray(int[] array) {
+        this.array = array;
+    }
+
+    public MyAtomicIntegerArray(int length) {
+        array = new int[length];
     }
 
     private static long getOffset(int i) {
@@ -21,12 +30,8 @@ public class MyAtomicIntegerArray implements Serializable {
         return ((long) i * scale) + base;
     }
 
-    public MyAtomicIntegerArray(int[] array) {
-        this.array = array;
-    }
-
-    public MyAtomicIntegerArray(int length) {
-        array = new int[length];
+    public static void main(String[] args) {
+        MyAtomicInteger myAtomicInteger = new MyAtomicInteger(2);
     }
 
     public final int length() {
@@ -56,9 +61,5 @@ public class MyAtomicIntegerArray implements Serializable {
 
     public final int getAndSet(int i, int newValue) {
         return unsafe.getAndSetInt(array, getOffset(i), newValue);
-    }
-
-    public static void main(String[] args) {
-        MyAtomicInteger myAtomicInteger = new MyAtomicInteger(2);
     }
 }

@@ -13,8 +13,7 @@ public class CopyOnWriteArrayListExample {
         copyOnWriteArrayList.add(1);
         copyOnWriteArrayList.add(2);
         copyOnWriteArrayList.add(3);
-
-        Thread thread1 = new Thread(() ->{
+        Thread thread1 = new Thread(() -> {
             try {
                 System.out.println(Thread.currentThread().getName() + " In");
                 System.out.println("thread1 : " + copyOnWriteArrayList.get(0));
@@ -23,7 +22,7 @@ public class CopyOnWriteArrayListExample {
             }
         });
 
-        Thread thread2 = new Thread(() ->{
+        Thread thread2 = new Thread(() -> {
             try {
                 System.out.println(Thread.currentThread().getName() + " In");
 
@@ -36,7 +35,7 @@ public class CopyOnWriteArrayListExample {
                 e.printStackTrace();
             }
         });
-        Thread thread3 = new Thread(() ->{
+        Thread thread3 = new Thread(() -> {
             try {
                 System.out.println(Thread.currentThread().getName() + " In");
                 System.out.println("thread3 : " + copyOnWriteArrayList.get(0));

@@ -1,0 +1,11 @@
+syntax = "proto3";
+package Netty.messages;
+
+option java_package ="Netty.messages";
+option java_outer_classname="ProtoMessage";
+
+// [开始 消息定义]
+message Message {
+  uint32 id = 1;  // Unique ID number for this person.
+  string content = 2;
+}
