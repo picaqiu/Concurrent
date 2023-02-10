@@ -31,7 +31,7 @@
         <spring.version>4.3.11.RELEASE</spring.version>
         <fastjson.version>1.2.29</fastjson.version>
         <rocketmq.version>4.1.0-incubating</rocketmq.version>
-        <netty.version>4.1.30.Final</netty.version>
+        <netty.version>4.1.42.Final</netty.version>
     </properties>
     <dependencies>
         <dependency>
