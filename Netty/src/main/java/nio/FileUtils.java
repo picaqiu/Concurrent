@@ -3,8 +3,9 @@ package nio;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
 
-public class  FileUtils {
+public class FileUtils {
     public static void copyFile(String src, String des) throws IOException {
         File srcFile = new File(src);
         File desFile = new File(des);
@@ -61,10 +62,10 @@ public class  FileUtils {
             desFileInputStream = new FileOutputStream(desFile);
             srcFileChannel = srcFileInputStream.getChannel();
             desFileChannel = desFileInputStream.getChannel();
-            long size= srcFileChannel.size();
+            long size = srcFileChannel.size();
             long index = 0L;
             long count = 0L;
-            while(index < size){
+            while (index < size) {
                 //每次拷贝1024个字节
                 count = size - index > 1024 ? 1024 : size - index;
                 index += desFileChannel.transferFrom(srcFileChannel, index, count);
@@ -79,18 +80,40 @@ public class  FileUtils {
         }
     }
 
+    public static void createSampleDataFile(String filePath) throws IOException {
+        // 1M = 1 * 1024 * 1024=1048576
+        // 1GB = 1024 * 1024 * 1024=1073741824
+        File file = new File(filePath);
+        BufferedWriter bufferedWriter = Files.newBufferedWriter(file.toPath());
+        int bufferCount = 0;
+        for (int i = 0; i < 10000000; i++) {
+            bufferedWriter.write(String.valueOf(i + 1));
+            bufferedWriter.newLine();
+            bufferCount++;
+            if (bufferCount == 1024) {
+                bufferedWriter.flush();
+                bufferCount = 0;
+            }
+
+        }
+        bufferedWriter.flush();
+        bufferedWriter.close();
+        System.out.println("end");
+    }
+
     public static void main(String[] args) throws IOException {
-        String a = "E:\\github\\code\\Concurrent\\src\\main\\resources\\a.txt";
-        String b = "E:\\github\\code\\Concurrent\\src\\main\\resources\\b.txt";
-        String c = "E:\\github\\code\\Concurrent\\src\\main\\resources\\c.txt";
-        File file = new File(a);
-        long start1 = System.currentTimeMillis();
-        System.out.println(start1);
-        copyFile(a, b);
-        System.out.println("copy cost :"+ (System.currentTimeMillis()-start1));
-        System.out.println(file.exists());
-        long start2 = System.currentTimeMillis();
-        fastCopyFile(a, c);
-        System.out.println("fast copy cost :"+ (System.currentTimeMillis()-start2));
+//        String a = "E:\\github\\code\\Concurrent\\src\\main\\resources\\a.txt";
+//        String b = "E:\\github\\code\\Concurrent\\src\\main\\resources\\b.txt";
+//        String c = "E:\\github\\code\\Concurrent\\src\\main\\resources\\c.txt";
+//        File file = new File(a);
+//        long start1 = System.currentTimeMillis();
+//        System.out.println(start1);
+//        copyFile(a, b);
+//        System.out.println("copy cost :" + (System.currentTimeMillis() - start1));
+//        System.out.println(file.exists());
+//        long start2 = System.currentTimeMillis();
+//        fastCopyFile(a, c);
+//        System.out.println("fast copy cost :" + (System.currentTimeMillis() - start2));
+        createSampleDataFile("D:\\a.txt");
     }
 }

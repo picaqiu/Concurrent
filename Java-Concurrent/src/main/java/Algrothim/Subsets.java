@@ -2,10 +2,7 @@ package Algrothim;
 
 import com.alibaba.fastjson.JSON;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Subsets {
     static  List<List<Integer>> result = new ArrayList<>();
@@ -26,13 +23,10 @@ public class Subsets {
                 continue;
             }
             data.add(nums[i]);
-            backtrack(nums, data, i+1);
+            backtrack(nums, data, i+1);/**/
             data.removeLast();
         }
     }
 
-    public static void main(String[] args) {
-        subsets(new int[]{1, 2, 2});
-    }
 
 }

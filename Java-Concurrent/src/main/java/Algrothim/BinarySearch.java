@@ -2,6 +2,10 @@ package Algrothim;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class BinarySearch {
 
@@ -21,5 +25,13 @@ public class BinarySearch {
         StringBuilder sb = new StringBuilder(s);
         sb.reverse();
         return -1;
+    }
+
+    public static void main(String[] args) {
+
+        //ExecutorService poolExecutor = Executors.newFixedThreadPool(4);
+       UUID uuid =   UUID.randomUUID();
+       System.out.println(uuid.toString());
+
     }
 }

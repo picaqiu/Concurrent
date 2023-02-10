@@ -97,7 +97,7 @@ public class Sort {
             return;
         }
         int mid = left + (right - left) / 2;
-        process(array, 0, mid);
+        process(array, left, mid);
         process(array, mid + 1, right);
         merge(array, left, mid, right);
     }
