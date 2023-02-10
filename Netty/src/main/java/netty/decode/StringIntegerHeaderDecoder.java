@@ -24,5 +24,7 @@ public class StringIntegerHeaderDecoder extends ByteToMessageDecoder {
         byte[] data =new byte[length];
         in.readBytes(data, 0, length);
         out.add(new String(data, StandardCharsets.UTF_8));
+        StringBuilder s =new StringBuilder();
+
     }
 }

@@ -15,9 +15,14 @@ public class SemaphoreExample2 {
     public static void main(String[] args) {
         Thread firstThread = new Thread(() -> {
             //first thread print First
-            System.out.println("First");
-            //semaphore1's permit changed to 1
-            semaphore1.release();
+            try {
+                semaphore1.acquire(0);
+                System.out.println("First");
+                //semaphore1's permit changed to 1
+                semaphore1.release();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         });
 
         Thread secondThread = new Thread(() -> {

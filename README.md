@@ -1,2 +1,2 @@
 # Concurrent
-Examples for the Java Util Concurrency
+Examples for Concurrency

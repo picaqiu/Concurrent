@@ -81,7 +81,7 @@ public class NettyInnerDecoderTest {
      * | version | length | magic number | content |
      */
     @Test
-    public void testLengthFieldBaedFrameTest() {
+    public void testLengthFieldBasedFrameTest() {
         try {
             // lengthAdjustment = 内容字段偏移量 - 长度偏移量 - 长度字段的长度
             final LengthFieldBasedFrameDecoder decoder = new LengthFieldBasedFrameDecoder(1024,
